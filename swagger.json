@@ -1,0 +1,44 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API para validar CPF",
+        "version": "1.0.0",
+        "title": "Validador de CPF"
+    },
+    "host": "localhost:3000",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/validarCPF": {
+            "post": {
+                "summary": "Valida um CPF",
+                "description": "Recebe um CPF e retorna se é válido ou não",
+                "parameters": [{
+                    "in": "body",
+                    "name": "cpf",
+                    "description": "CPF a ser validado",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "CPF válido",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    "400": {
+                        "description": "CPF inválido",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

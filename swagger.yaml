@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: API de Validacao de CPF
+  description: API para validar CPF
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/validarCPF:
+    post:
+      summary: Valida um CPF
+      description: Recebe um CPF e verifica se ele é válido.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CPF:
+                  type: string
+                  example: "***.***.***-**"
+      responses:
+        200:
+          description: Resultado da validação do CPF
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "CPF válido"
